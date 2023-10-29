@@ -1,0 +1,183 @@
+body {
+    height: 3000px;
+}
+
+/* .position-fixed {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+} */
+
+/* .right-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: green;
+    width: 60px;
+} */
+
+/* .cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+} */
+
+/* .cover2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-title-div {
+    border-radius: 8px;
+    width: 300px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: white;
+}
+
+p {
+    font-family: Arial;
+    margin: 0;
+    line-height: 35px;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 25px;
+} */
+
+/* .flexbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.name {
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.div1,
+.div2 {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    column-gap: 10px;
+}
+
+.div2 {
+    padding-right: 20px;
+}
+
+.add,
+.message {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 8px;
+    font-family: Arial;
+    cursor: pointer;
+}
+
+.add {
+    background-color: rgb(56, 114, 219);
+    color: white;
+}
+
+.message {
+    background-color: rgb(228, 229, 234);
+    font-weight: bold;
+} */
+
+.right-sidebar1 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background-color: rgb(32, 34, 38);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 14px
+}
+
+.avatarr {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.right-sidebar2 {
+    position: fixed;
+    top: 0;
+    left: 80px;
+    bottom: 0;
+    width: 170px;
+    background-color: rgb(47, 47, 47);
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 14px;
+}
+
+.flexboxx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+.info {
+    color: rgb(219, 219, 219);
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.addd,
+.tag {
+    color: rgb(143, 147, 149);
+    font-family: Arial;
+}
+
+.addd {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.tag {
+    line-height: 30px;
+}

@@ -1,0 +1,61 @@
+.grid {
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.profile {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.avatar {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.name,
+.add {
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-bottom: 0px;
+    font-family: Arial;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    column-gap: 7px;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.avatarr {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.mutual-f {
+    color: gray;
+    font-family: Arial;
+}
+
+.add {
+    background-color: rgb(16, 111, 207);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}

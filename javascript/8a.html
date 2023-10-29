@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      // const amazonProduct = {
+      //   name: 'basketball',
+      //   price: 2095,
+      //   'delivery-time': '3 days'
+      // }
+
+      const amazonProduct1 = {
+        name: 'shoes',
+        price: 2500
+      };
+
+      const amazonProduct2 = {
+        name: 't-shirt',
+        price: 2000
+      };
+
+      // console.log(amazonProduct);
+      // amazonProduct.price += 500;
+      // console.log(amazonProduct);
+
+      function comparePrice(Product1, Product2) {
+        if (Product1.price > Product2.price) {
+          return Product2;
+        } else {
+          return Product1;
+        }
+      }
+
+      function isSameProduct(Product1, Product2) {
+        if ((Product1.price === Product2.price) && (Product1.name === Product2.name)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(comparePrice(amazonProduct1, amazonProduct2));
+      console.log(isSameProduct(amazonProduct1, amazonProduct2));
+
+      const aString = 'Good Morning!';
+      console.log(aString.toLowerCase());
+      console.log(aString.repeat(5));
+
+      let repeatString = '';
+      for (let i = 0; i <= 4; i++) {
+        repeatString += aString;
+      }
+      console.log(repeatString);
+    </script>
+  </body>
+</html>
