@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9c</title>
+  </head>
+  <body>
+    <button onclick="
+      choose('heads');
+    " class="js-heads">heads</button>
+
+    <button onclick="
+      choose('tails');
+    " class="js-tails">tails</button>
+
+    <p class="js-result"></p>
+    <script>
+      function choose(chose) {
+        let result = document.querySelector('.js-result');
+        const headsElement = document.querySelector('.js-heads');
+        const tailsElement = document.querySelector('.js-tails');
+        if (chose === 'heads'){
+          result.innerHTML = `You chose: ${headsElement.innerHTML}`;
+        } else {
+          result.innerHTML = `You chose: ${tailsElement.innerHTML}`;
+        }
+      }
+    </script>
+  </body>
+</html>

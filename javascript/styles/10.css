@@ -1,0 +1,45 @@
+/* 10a */
+button {
+  margin-right: 20px;
+}
+
+.add-to-cart {
+  background-color: rgb(255, 216, 20);
+  border: none;
+  font-size: 17px;
+  padding: 10px 45px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.request-now {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.schedule-for-later {
+  background-color: rgb(230, 230, 230);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 10d */
+.option {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.is-toggled {
+  background-color: black;
+  color: white;
+}

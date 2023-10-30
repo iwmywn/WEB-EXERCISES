@@ -1,0 +1,49 @@
+body {
+  background-color: rgb(25, 25, 25);
+  font-family: Arial;
+}
+
+.rps-game {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.move-btn {
+  background-color: transparent;
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  border: 3px solid white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.move-btn > img,
+.move-icon {
+  height: 50px;
+}
+
+.result {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+.moves {
+  color: white;
+}
+
+.score {
+  color: white;
+  margin-top: 60px;
+}
+
+.reset-score-btn {
+  padding: 8px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
