@@ -16,6 +16,79 @@ if (!score) {
 
 updateScoreElement();
 
+document.querySelector('.js-rock')
+  .addEventListener('click', () => {
+    playGame('rock');
+  });
+document.querySelector('.js-paper')
+  .addEventListener('click', () => {
+    playGame('paper');
+  });
+document.querySelector('.js-scissors')
+  .addEventListener('click', () => {
+    playGame('scissors');
+  });
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r' || event.key === 'R') {
+    playGame('rock');
+  } else if (event.key === 'p' || event.key === 'P') {
+    playGame('paper');
+  } else if (event.key === 's' || event.key === 'S') {
+    playGame('scissors');
+  }
+});
+
+document.querySelector('.js-reset-score-btn')
+  .addEventListener('click', () => {
+    confirmResetScore();
+  });
+
+document.querySelector('.js-auto-play')
+  .addEventListener('click', () => {
+    autoPlay();
+  });
+
+document.body
+  .addEventListener('keydown', (event) => {
+    if (event.key === 'a' || event.key === 'A')
+      autoPlay();
+  });
+
+document.body
+  .addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace')
+      confirmResetScore();
+  });
+
+function resetScore() {
+  score.win = 0;
+  score.lose = 0;
+  score.tie = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+}
+
+function confirmResetScore() {
+  let confirmResetElement = document.querySelector('.js-confirm-reset');
+  confirmResetElement.innerHTML = `
+    <div>
+      <span style="color: white;">Are you sure you want to reset the score?</span>
+      <button class="js-yes-btn">Yes</button>
+      <button class="js-no-btn">No</button>
+    </div>
+  `;
+  document.querySelector('.js-yes-btn')
+    .addEventListener('click', () => {
+      resetScore();
+      confirmResetElement.innerHTML = '';
+    });
+  document.querySelector('.js-no-btn')
+    .addEventListener('click', () => {
+      confirmResetElement.innerHTML = '';
+    });
+}
+
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let result = '';
@@ -73,7 +146,7 @@ function updateScoreElement() {
 }
 
 function pickComputerMove() {
-  const randomNumber = Math.random() * 3;
+  const randomNumber = Math.random();
   let computerMove = '';
 
   if (randomNumber >= 0 && randomNumber < 1 / 3) {
@@ -85,4 +158,20 @@ function pickComputerMove() {
   }
 
   return computerMove;
+}
+
+let intervalId;
+
+function autoPlay() {
+  const play = document.querySelector('.js-auto-play');
+  if (play.innerHTML === 'Auto Play') {
+    intervalId = setInterval(() => {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+    }, 1000);
+    document.querySelector('.js-auto-play').innerHTML = 'Stop Play';
+  } else if (play.innerHTML === 'Stop Play') {
+    document.querySelector('.js-auto-play').innerHTML = 'Auto Play';
+    clearInterval(intervalId);
+  }
 }

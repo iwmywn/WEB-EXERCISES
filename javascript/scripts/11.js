@@ -1,5 +1,5 @@
-// const nums = [10, 20, 30];
-// const string = ['hi', 'hello', 'good'];
+const nums = [10, 20, 30];
+const string = ['hi', 'hello', 'good'];
 
 // nums.splice(nums.length - 1, 1, 99);
 // console.log(nums);
@@ -9,16 +9,20 @@
 //   return lastValue;
 // }
 
-// function arraySwap(array) {
-//   const firstValue = array[0];
-//   const lastValue = array[array.length - 1];
-//   array.splice(0, 1, lastValue);
-//   array.splice(array.length - 1, 1, firstValue);
-//   return array;
-// }
+function arraySwap(array) {
+  // const firstValue = array[0];
+  // const lastValue = array[array.length - 1];
+  // array.splice(0, 1, lastValue);
+  // array.splice(array.length - 1, 1, firstValue);
+
+  let temp = array[0];
+  array[0] = array[array.length - 1];
+  array[array.length - 1] = temp;
+  return array;
+}
 
 // console.log(getLastValue(string));
-// console.log(arraySwap(string));
+console.log(arraySwap(string));
 
 //for loops
 // for (let i = 0; i <= 10; i += 2) {
@@ -183,19 +187,19 @@
 // console.log(removeEgg(foods1));
 
 // 11v
-// const array = [];
-// for (let i = 1; i <= 20; i++) {
-//   if (i % 3 === 0 && i % 5 === 0) {
-//     array.push('FizzBuzz');
-//   } else if (i % 3 === 0 && i % 5 !== 0) {
-//     array.push('Fizz');
-//   } else if (i % 5 === 0 && i % 3 !== 0) {
-//     array.push('Buzz');
-//   } else {
-//     array.push(i);
-//   }
-// }
-// console.log(array);
+const array = [];
+for (let i = 1; i <= 20; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log('FizzBuzz');
+  } else if (i % 3 === 0 && i % 5 !== 0) {
+    console.log('Fizz');
+  } else if (i % 5 === 0 && i % 3 !== 0) {
+    console.log('Buzz');
+  } else {
+    console.log(i);
+  }
+}
+console.log(array);
 
 // 11 w
 // function findIndex(array, word) {

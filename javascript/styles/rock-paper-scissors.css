@@ -40,7 +40,8 @@ body {
   margin-top: 60px;
 }
 
-.reset-score-btn {
+.reset-score-btn,
+.auto-play-btn {
   padding: 8px 15px;
   font-size: 15px;
   cursor: pointer;
