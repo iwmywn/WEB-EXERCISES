@@ -8,26 +8,46 @@ function displayTimer() {
   let i = timerObject.second;
   let j = timerObject.minute;
   let z = timerObject.hour;
+  let lap = JSON.parse(localStorage.getItem('lap')) || 0;
+  let displayLapHTML = localStorage.getItem('displayLap') || '';
+  const displayLapElement = document.querySelector('.js-display-lap');
+
+  if (lap > 0) {
+    displayLapElement.classList.add('display-lap');
+  }
+
   if (i < 10 && j < 10) {
-    if (z > 0)
+    if (z > 0) {
       timerElement.innerHTML = `${z}:0${j}:0${i}`;
-    else
+      displayLapElement.innerHTML = displayLapHTML;
+    } else {
       timerElement.innerHTML = `0${j}:0${i}`;
+      displayLapElement.innerHTML = displayLapHTML;
+    }
   } else if (i < 10 && j >= 10) {
-    if (z > 0)
+    if (z > 0) {
       timerElement.innerHTML = `${z}:${j}:0${i}`;
-    else
+      displayLapElement.innerHTML = displayLapHTML;
+    } else {
       timerElement.innerHTML = `${j}:0${i}`;
+      displayLapElement.innerHTML = displayLapHTML;
+    }
   } else if (i >= 10 && j < 10) {
-    if (z > 0)
+    if (z > 0) {
       timerElement.innerHTML = `${z}:0${j}:${i}`;
-    else
+      displayLapElement.innerHTML = displayLapHTML;
+    } else {
       timerElement.innerHTML = `0${j}:${i}`;
+      displayLapElement.innerHTML = displayLapHTML;
+    }
   } else {
-    if (z > 0)
+    if (z > 0) {
       timerElement.innerHTML = `${z}:${j}:${i}`;
-    else
+      displayLapElement.innerHTML = displayLapHTML;
+    } else {
       timerElement.innerHTML = `${j}:${i}`;
+      displayLapElement.innerHTML = displayLapHTML;
+    }
   }
 }
 
@@ -40,6 +60,7 @@ function getValue() {
 
 function startCountUp() {
   const startStop = document.querySelector('.js-start-stop');
+  const lapElement = document.querySelector('.js-reset-lap');
   const timerObject = getValue();
   // let { second, minute, hour } = timerObject;
   let i = timerObject.second;
@@ -48,7 +69,9 @@ function startCountUp() {
 
   if (startStop.innerHTML === 'Start') {
     startStop.innerHTML = 'Stop';
+    lapElement.innerHTML = 'Lap';
     startStop.classList.add('stop-bg');
+
     Interval = setInterval(() => {
       if (i < 9 && j < 10) {
         if (z > 0)
@@ -68,7 +91,7 @@ function startCountUp() {
       } else if (i >= 9 && i < 59 && j >= 10) {
         if (z > 0)
           timerElement.innerHTML = `${z}:${j}:${++i}`;
-        else 
+        else
           timerElement.innerHTML = `${j}:${++i}`;
       } else if (i === 59 && j < 9) {
         i = 0;
@@ -91,16 +114,130 @@ function startCountUp() {
     }, 1000);
   } else {
     startStop.innerHTML = 'Start';
+    lapElement.innerHTML = 'Reset';
     startStop.classList.remove('stop-bg');
     clearInterval(Interval);
   }
 }
 
-function resetTimer() {
-  timerElement.innerHTML = '00:00';
-  localStorage.removeItem('timer-second');
-  localStorage.removeItem('timer-minute');
-  localStorage.removeItem('timer-hour');
+function resetLapTimer() {
+  const lapElement = document.querySelector('.js-reset-lap');
+  const displayLapElement = document.querySelector('.js-display-lap');
+  let displayLapHTML = localStorage.getItem('displayLap') || '';
+  const timerObject = getValue();
+  let i = timerObject.second;
+  let j = timerObject.minute;
+  let z = timerObject.hour;
+  let lap = JSON.parse(localStorage.getItem('lap')) || 0;
+  if (lapElement.innerHTML === 'Lap') {
+    if (!displayLapElement.classList.contains('display-lap'))
+      displayLapElement.classList.add('display-lap');
+    if (i < 10 && j < 10) {
+      if (z > 0)
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${z}:0${j}:0${i}
+            </span>
+          </div>
+        `;
+      else
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              0${j}:0${i}
+            </span>
+          </div>
+        `;
+    } else if (i < 10 && j >= 10) {
+      if (z > 0)
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${z}:${j}:0${i}
+            </span>
+          </div>
+        `;
+      else
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${j}:0${i}
+            </span>
+          </div>
+        `;
+    } else if (i >= 10 && j < 10) {
+      if (z > 0)
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${z}:0${j}:${i}
+            </span>
+          </div>
+        `;
+      else
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              0${j}:${i}
+            </span>
+          </div>
+        `;
+    } else {
+      if (z > 0)
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${z}:${j}:${i}
+            </span>
+          </div>
+        `;
+      else
+        displayLapHTML += `
+          <div class="row-lap">
+            <span>
+              Lap ${++lap}
+            </span>
+            <span>
+              ${j}:${i}
+            </span>
+          </div>
+        `;
+    }
+    displayLapElement.innerHTML = displayLapHTML;
+    localStorage.setItem('displayLap', displayLapHTML);
+    localStorage.setItem('lap', JSON.stringify(lap));
+  } else {
+    displayLapElement.classList.remove('display-lap');
+    displayLapElement.innerHTML = '';
+    timerElement.innerHTML = '00:00';
+    localStorage.removeItem('timer-second');
+    localStorage.removeItem('timer-minute');
+    localStorage.removeItem('timer-hour');
+    localStorage.removeItem('displayLap');
+    localStorage.removeItem('lap');
+  }
 }
 
 function saveToLocalStorage(second, minute, hour) {
@@ -114,7 +251,7 @@ document.querySelector('.js-start-stop')
     startCountUp();
   });
 
-document.querySelector('.js-reset')
+document.querySelector('.js-reset-lap')
   .addEventListener('click', () => {
-    resetTimer();
+    resetLapTimer();
   });

@@ -13,11 +13,11 @@ body {
   row-gap: 20px;
 }
 
-.container > div {
+.reset-lap-box {
   display: flex;
 }
 
-.container > div:first-child > div {
+.timer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,16 +26,16 @@ body {
   width: 300px;
   height: 200px;
   font-size: 60px;
-  color: black;
 }
 
-.container > div:last-child {
+.reset-lap-box {
   align-items: center;
   justify-content: space-between;
   width: 200px;
 }
 
-.container > div:last-child > button {
+.start-stop,
+.reset-lap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,12 +46,30 @@ body {
   cursor: pointer;
 }
 
-.container > div:last-child > button:first-child {
+.start-stop {
   background-color: darkgreen;
   color: lightgreen;
 }
 
 .stop-bg {
-  background-color: darkred !important;
-  color: red !important;
+  background-color: darkred;
+  color: red;
+}
+
+.display-lap {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  background-color: white;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 15px;
+}
+
+.row-lap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
 }
