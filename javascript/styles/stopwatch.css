@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(25, 25, 25);
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  row-gap: 20px;
+}
+
+.container > div {
+  display: flex;
+}
+
+.container > div:first-child > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 9999px;
+  width: 300px;
+  height: 200px;
+  font-size: 60px;
+  color: black;
+}
+
+.container > div:last-child {
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.container > div:last-child > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  cursor: pointer;
+}
