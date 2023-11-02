@@ -48,6 +48,7 @@ function startCountUp() {
 
   if (startStop.innerHTML === 'Start') {
     startStop.innerHTML = 'Stop';
+    startStop.classList.add('stop-bg');
     Interval = setInterval(() => {
       if (i < 9 && j < 10) {
         if (z > 0)
@@ -87,9 +88,10 @@ function startCountUp() {
         timerElement.innerHTML = `${++z}:00:00`;
       }
       saveToLocalStorage(i, j, z);
-    }, 1);
+    }, 1000);
   } else {
     startStop.innerHTML = 'Start';
+    startStop.classList.remove('stop-bg');
     clearInterval(Interval);
   }
 }

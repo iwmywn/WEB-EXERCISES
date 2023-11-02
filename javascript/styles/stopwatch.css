@@ -1,6 +1,7 @@
 body {
   background-color: rgb(25, 25, 25);
   font-family: Arial;
+  overflow-y: hidden;
 }
 
 .container {
@@ -43,4 +44,14 @@ body {
   height: 60px;
   border: none;
   cursor: pointer;
+}
+
+.container > div:last-child > button:first-child {
+  background-color: darkgreen;
+  color: lightgreen;
+}
+
+.stop-bg {
+  background-color: darkred !important;
+  color: red !important;
 }
