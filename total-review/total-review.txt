@@ -1,0 +1,100 @@
+const return = (condition) ? 'truthy' : 'falsy';
+const message = (condition) && 'hello';
+const currency = 'EUR' || 'USD';
+
+returns: gets value out of a function
+parameter = puts a value into a function
+
+object = an object groups multiple values together
++ dot notation: object[.]property name
++ bracket notation: object['property name']
++ const product = {
+  'delivery-time': '1 day';
+  ['delivery-time']: '1 day';
+};
++ inside an object, we can save any type of value
++ objects are references
++ we can not compare objects directly
++ shortcuts for objects
+ destructuring
+ + const object1 = {
+  message: 'Good job',
+  amount: 1
+ };
+ const { message, amount } = object1; === (const message = object1.message;
+                                           const amount = object1.amount;)
+ shorthand property
+ + const object2 = {
+  message: message === message
+ };
+ shorthand method
+ + const object3 = {
+  method: function function1 {       method() {
+    console.log('method');      ===    console.log('method');
+  }                                  }
+ };
+ !method: function saved inside an object
+
+JSON (Javascript Object Notation)
++ a syntax
++ similar to Javascript object but has less features
++ we use JSON when we send date between computers / when we store date
++ Javascript <-> JSON
++ JSON.stringify, JSON.parse
+
+localStorage
++ save values more permanently
++ localStorage.setItem/getItem/removeItem
+
+falsy
++ false, 0, NaN, '', undefined, null
+truthy
++ except values of falsy
+
+null
++ intentionally want something to be empty
+function calculateCost(cost = 1000) {
+  console.log(cost);
+}
+calculateCost(null); !== undefined, calculateCost();
+
+DOM (Document Object Model)
++ we can have HTML elements inside Javascript
++ the DOM combines Javascript and HTML together (it give JS full control of the webpage)
++ the HTML element is converted into a Javascript object
+ document.querySelector()
+ + lets us get 'any elements' from the page and put it inside Javascript
++ every HTML element has a property .innerHTML
+! when we get a value from the DOM, the value will be a string
++ classList - give us control of the class attribute
+
+Array
++ an array is an object (it's a special type of object)
++ arrays are references
+
+forEach
++ if we need to use break -> use a regular for loop
+
+filter
++ create a new array
++ return true -> put value in array
++ return false -> not put value in array
+! we can return a truthy or falsy value
+
+map
++ create a new array
++ whatever we return -> added to new array
++ transform an array into another array
+
+Advanced Functions
++ functions are values -> we can also pass a function into a function
++ setTimeout() - allows us to run a function in the future
++ setInterval() - returns a number -> we can use it to stop the interval (clearInterval())
++ passing a function into a function -> arrow functions
+ closure
+ + if a function has access to a value -> it will always have access to that value
+ + value gets packaged together (enclosed) with the function
+
+addEventListener()
++ multiple event listeners for one event
++ we can remove an event listener - removeEventListener()
