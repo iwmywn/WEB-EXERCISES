@@ -98,3 +98,8 @@ Advanced Functions
 addEventListener()
 + multiple event listeners for one event
 + we can remove an event listener - removeEventListener()
+
+main idea of Javascript
++ save the data
++ generate the HTML 
++ make it interactive
