@@ -68,7 +68,7 @@ export function updateCartQuantity() {
   });
   document.querySelector('.js-cart-quantity')
     .innerHTML = cartQuantity;
-  localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
+  // localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
 }
 
 function displayAddedToCart(addMessageTimeoutId, productId) {
