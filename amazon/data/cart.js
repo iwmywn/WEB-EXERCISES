@@ -1,4 +1,10 @@
-export const cart = [];
+export const cart = [{
+  productId: 'a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d',
+  quantity: 1
+}, {
+  productId: 'a45cfa0a-66d6-4dc7-9475-e2b01595f7d7',
+  quantity: 2
+}];
 
 export function addToCart(productId) {
   const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
