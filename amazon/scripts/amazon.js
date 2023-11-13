@@ -1,3 +1,5 @@
+import { cart } from "../data/cart";
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -25,7 +27,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-quantity-container">
-        <select>
+        <select class="js-quantity-selector-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -41,7 +43,7 @@ products.forEach((product) => {
 
       <div class="product-spacer"></div>
 
-      <div class="added-to-cart">
+      <div class="js-added-to-cart-${product.id} added-to-cart">
         <img src="images/icons/checkmark.png">
         Added
       </div>
@@ -56,22 +58,40 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
+// const addMessageTimeouts = {};
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
+    let addMessageTimeoutId;
     button.addEventListener('click', () => {
-      const productId = button.dataset.productId;
+      const { productId } = button.dataset;
+      const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+      const quantity = Number(quantitySelector.value);
+      const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
       let matchingItem;
+
+      // const previousTimeout = addMessageTimeouts[productId];
+      // if (previousTimeout)
+      //   clearTimeout(previousTimeout);
+      if (addMessageTimeoutId)
+        clearTimeout(addMessageTimeoutId);
+      addedMessage.classList.add('display-added-to-cart');
+      const timeoutId = setTimeout(() => {
+        addedMessage.classList.remove('display-added-to-cart');
+      }, 2000);
+
+      // addMessageTimeouts[productId] = timeoutId;
+      addMessageTimeoutId = timeoutId;
       
       cart.forEach((item) => {
         if (item.productId === productId)
           matchingItem = item;
       });
       if (matchingItem)
-        matchingItem.quantity++;
+        matchingItem.quantity += quantity;
       else 
         cart.push({
           productId,
-          quantity: 1
+          quantity
         });
 
       let cartQuantity = 0;
