@@ -103,3 +103,14 @@ main idea of Javascript
 + save the data
 + generate the HTML 
 + make it interactive
+
+data attribute (data-*)
++ is just another HTML attribute
++ allows us to attach any information to an element
+
+modules
++ a better way to organize our code
+ get a variable out of a file
+ + add type="module" attribute (let's this file get variables out of other files)
+ + export
+ + import
