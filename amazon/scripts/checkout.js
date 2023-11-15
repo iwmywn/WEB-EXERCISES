@@ -1,5 +1,6 @@
 import { cart, removeFromCart, 
-  calculateCartQuantity, updateQuantity } from '../data/cart.js';
+  calculateCartQuantity, updateQuantity,
+  updateDeliveryOption } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
@@ -109,6 +110,14 @@ document.querySelectorAll(`.js-quantity-input`)
     });
   });
 
+document.querySelectorAll('.js-delivery-option')
+  .forEach((option) => {
+    option.addEventListener('click', () => {
+      const { productId, deliveryOptionId } = option.dataset;
+      updateDeliveryOption(productId, deliveryOptionId);
+    });
+  });  
+
 function deliveryOptionsHTML(matchingProduct, cartItem) {
   let html = '';
 
@@ -126,7 +135,9 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
       ? 'checked'
       : '';
     html += `
-      <div class="delivery-option">
+      <div class="js-delivery-option delivery-option" 
+        data-product-id="${matchingProduct.id}"
+        data-delivery-option-id="${deliveryOption.id}">
         <input type="radio"
           ${isChecked}
           class="delivery-option-input"
