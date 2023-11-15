@@ -75,6 +75,7 @@ export default function renderOrderSummary() {
         removeFromCart(productId);
         document.querySelector(`.js-cart-item-container-${productId}`).remove();
         updateCartQuantity();
+        renderPaymentSummary();
       })
     });
 
@@ -91,14 +92,17 @@ export default function renderOrderSummary() {
     .forEach((link) => {
       link.addEventListener('click', () => {
         saveQuantityLink(link);
+        renderPaymentSummary();
       });
     });
 
   document.querySelectorAll(`.js-quantity-input`)
     .forEach((link) => {
       link.addEventListener('keydown', (Event) => {
-        if (Event.key === 'Enter')
+        if (Event.key === 'Enter') {
           saveQuantityLink(link);
+          renderPaymentSummary();
+        }
       });
     });
 
@@ -108,6 +112,7 @@ export default function renderOrderSummary() {
         const { productId, deliveryOptionId } = option.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
         renderOrderSummary();
+        renderPaymentSummary();
       });
     });  
 
