@@ -3,11 +3,11 @@ import { cart, removeFromCart,
 import { getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
-import renderPaymentSummary from './paymentSummary.js';
-import renderCheckoutHeader from './checkoutHeader.js';
+import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 import { calculateDeliveryDate } from '../../data/deliveryOptions.js';
 
-export default function renderOrderSummary() {
+export function renderOrderSummary() {
   let cartSummaryHTML = '';
 
   cart.forEach((cartItem) => {
@@ -16,7 +16,7 @@ export default function renderOrderSummary() {
     const dateString = calculateDeliveryDate(deliveryOption);
 
     cartSummaryHTML += `
-      <div class="js-cart-item-container-${matchingProduct.id} cart-item-container">
+      <div class="js-cart-item-container js-cart-item-container-${matchingProduct.id} cart-item-container">
         <div class="delivery-date">
           Delivery date: ${dateString}
         </div>
@@ -32,7 +32,7 @@ export default function renderOrderSummary() {
             <div class="product-price">
               $${formatCurrency(matchingProduct.priceCents)}
             </div>
-            <div class="product-quantity">
+            <div class="product-quantity js-product-quantity-${matchingProduct.id}">
               <span>
                 Quantity: <span class="js-quantity-label-${matchingProduct.id} quantity-label">${cartItem.quantity}</span>
               </span>
@@ -42,7 +42,7 @@ export default function renderOrderSummary() {
               <input class="js-quantity-input js-quantity-input-${matchingProduct.id} quantity-input" data-product-id="${matchingProduct.id}">
               <span class="js-save-quantity-link save-quantity-link link-primary" data-product-id="${matchingProduct.id}">Save</span>
               <span style="color:red" class="js-invalid-quantity-${matchingProduct.id} invalid-quantity">Error</span>
-              <span class="js-delete-link delete-quantity-link link-primary" data-product-id="${matchingProduct.id}">
+              <span class="js-delete-link js-delete-link-${matchingProduct.id} delete-quantity-link link-primary" data-product-id="${matchingProduct.id}">
                 Delete
               </span>
             </div>

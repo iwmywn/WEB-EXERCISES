@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svg circle</title>
+
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 500px;
+      height: 500px;
+      border: 5px solid black;
+    }
+
+    .container > div {
+      border-radius: 999rem;
+      width: 168px;
+      height: 168px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- story -->
+    <div>
+      <svg style="width:100%;height:100%;background-color: #000">
+        <circle cx="84" cy="84" r="78" fill="transparent" stroke="#0866FF" stroke-width="4"></circle>
+        <defs>
+          <clipPath id="circleClip1">
+            <circle cx="84" cy="84" r="72" />
+          </clipPath>
+        </defs>
+        <image x="12" y="12"
+          href="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/408540356_1136500603989204_8296609456028576154_n.jpg?stp=dst-jpg_p320x320&_nc_cat=109&ccb=1-7&_nc_sid=5740b7&_nc_ohc=6JgWdOVGImsAX82dKjU&_nc_ht=scontent.fsgn5-8.fna&oh=00_AfBTIlnEpaCM4cbEsyUpO-byDqNkqcOcSHUH9UtuNSxdLQ&oe=65769E24"
+          width="144" height="144" clip-path="url(#circleClip1)"></image>
+      </svg>
+    </div>
+    <!-- original -->
+    <div>
+      <svg style="width:100%;height:100%">
+        <circle cx="84" cy="84" r="78" fill="transparent" stroke="#0866FF" stroke-width="4"></circle>
+        <defs>
+          <clipPath id="user-id">
+            <!-- changed -->
+            <circle cx="84" cy="84" r="84" />
+          </clipPath>
+        </defs>
+        <!-- changed -->
+        <image x="0" y="0"
+          href="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/408540356_1136500603989204_8296609456028576154_n.jpg?stp=dst-jpg_p320x320&_nc_cat=109&ccb=1-7&_nc_sid=5740b7&_nc_ohc=6JgWdOVGImsAX82dKjU&_nc_ht=scontent.fsgn5-8.fna&oh=00_AfBTIlnEpaCM4cbEsyUpO-byDqNkqcOcSHUH9UtuNSxdLQ&oe=65769E24"
+          width="168" height="168" clip-path="url(#user-id)"></image>
+      </svg>
+    </div>
+    <!-- <svg style="border-radius: 999rem; cursor: pointer" width="168" height="168">
+      <circle cx="84" cy="84" r="84"></circle>
+      <circle cx="84" cy="84" r="80" fill="#0866FF"></circle>
+      <circle cx="84" cy="84" r="76"></circle>
+      <defs>
+        <clipPath id="circleClip2">
+          <circle cx="84" cy="84" r="72" />
+        </clipPath>
+      </defs>
+      <image x="12" y="12"
+        href="https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/408540356_1136500603989204_8296609456028576154_n.jpg?stp=dst-jpg_p320x320&_nc_cat=109&ccb=1-7&_nc_sid=5740b7&_nc_ohc=6JgWdOVGImsAX82dKjU&_nc_ht=scontent.fsgn5-8.fna&oh=00_AfBTIlnEpaCM4cbEsyUpO-byDqNkqcOcSHUH9UtuNSxdLQ&oe=65769E24"
+        width="144" height="144" clip-path="url(#circleClip2)"></image>
+    </svg> -->
+  </div>
+</body>
+
+</html>
