@@ -1,3 +1,5 @@
+JAVASCRIPT
+
 const return = (condition) ? 'truthy' : 'falsy';
 const message = (condition) && 'hello';
 const currency = 'EUR' || 'USD';
@@ -114,3 +116,19 @@ modules
  + add type="module" attribute (let's this file get variables out of other files)
  + export
  + import
+
+external libraries
++ code that is outside of our project
+
+mvc(model - view - controller)
+split our code into 3 parts
+ model
+ + saves and manages the data
+ view
+ + takes the data and displays it on the page
+ controller 
+ + runs some code when we interact with the page 
+
+2 types of test cases
++ basic test cases -> test if the code is working
++ edge cases -> test with values are tricky
